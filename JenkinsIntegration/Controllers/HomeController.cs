@@ -22,7 +22,7 @@ namespace JenkinsIntegration.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your contact page." + "teste lala";
 
             return View();
         }
