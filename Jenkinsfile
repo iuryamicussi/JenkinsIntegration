@@ -4,7 +4,7 @@ node {
 	}
 	stage ('Build'){
 		bat '%nuget% restore JenkinsIntegration.sln'
-		bat "\"${tool 'MSBuildLocal'}\" JenkinsIntegration.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+		bat "\"${tool 'MSBuildLocal'}\" JenkinsIntegration.sln /p:DeployOnBuild=true /p:PublishProfile=JenkinsIntegration/Properties/PublishProfiles/CustomProfile.pubxml /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
 	}
 	stage ('Archive'){
 		archive 'JenkinsIntegration/bin/Release/**'
